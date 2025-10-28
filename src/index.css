@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --app-font-family: Inter, ui-sans-serif, system-ui, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Apple Color Emoji, Segoe UI Emoji;
+  --app-font-size: 16px;
+  --surface-opacity: 0.9;
+  --motion-duration: 300ms;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: var(--app-font-family);
+  font-size: var(--app-font-size);
+}
+
+/* Apply transparency to surfaces that use backdrop (cards, headers, sidebars) */
+.bg-white\/90 { background-color: rgba(255, 255, 255, var(--surface-opacity)) !important; }
+.dark .dark\:bg-gray-800\/90 { background-color: rgba(31, 41, 55, var(--surface-opacity)) !important; }
+.bg-gray-800\/90 { background-color: rgba(31, 41, 55, var(--surface-opacity)) !important; }
+.bg-white\/95 { background-color: rgba(255, 255, 255, var(--surface-opacity)) !important; }
+.dark .dark\:bg-gray-900\/95 { background-color: rgba(17, 24, 39, var(--surface-opacity)) !important; }
+.backdrop-blur-sm { transition-duration: var(--motion-duration) !important; }
+
+/* Smooth scroll & minor animations respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0ms !important; transition-duration: 0ms !important; }
+}
